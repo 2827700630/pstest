@@ -101,6 +101,11 @@ int XUsbPs_Ch9HandleSetupPacket(XUsbPs *InstancePtr,
 #ifdef CH9_DEBUG
 	printf("Handle setup packet\n");
 #endif
+	
+	// 添加枚举调试信息
+	printf("USB Setup: Type=0x%02X, Req=0x%02X, Val=0x%04X, Idx=0x%04X, Len=%d\r\n",
+		   SetupData->bmRequestType, SetupData->bRequest, SetupData->wValue,
+		   SetupData->wIndex, SetupData->wLength);
 
 	switch (SetupData->bmRequestType & XUSBPS_REQ_TYPE_MASK)
 	{

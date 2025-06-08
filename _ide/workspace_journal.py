@@ -10,3 +10,9 @@ status = platform.build()
 comp = client.get_component(name="xusbps_intr_example")
 comp.build()
 
+status = platform.build()
+
+comp.build()
+
+vitis.dispose()
+

@@ -238,15 +238,15 @@ static int UsbIntrExample(XUsbPs *UsbInstancePtr, UINTPTR BaseAddress)
 	/*
 	 * 配置端点 1（CDC 数据端点）
 	 * 此端点用于 CDC 数据传输（虚拟串口数据）
-	 * 使用512字节包大小以充分利用USB3320C-EZK高速能力
+	 * 使用64字节包大小确保兼容性，硬件将自动协商到最高支持速度
 	 */
 	DeviceConfig.EpCfg[1].Out.Type = XUSBPS_EP_TYPE_BULK;
 	DeviceConfig.EpCfg[1].Out.NumBufs = 16;
-	DeviceConfig.EpCfg[1].Out.BufSize = 512;
-	DeviceConfig.EpCfg[1].Out.MaxPacketSize = 512;
+	DeviceConfig.EpCfg[1].Out.BufSize = 512;  // 缓冲区保持大，支持高速传输
+	DeviceConfig.EpCfg[1].Out.MaxPacketSize = 64;  // 描述符包大小兼容
 	DeviceConfig.EpCfg[1].In.Type = XUSBPS_EP_TYPE_BULK;
 	DeviceConfig.EpCfg[1].In.NumBufs = 16;
-	DeviceConfig.EpCfg[1].In.MaxPacketSize = 512;
+	DeviceConfig.EpCfg[1].In.MaxPacketSize = 64;
 
 	/*
 	 * 配置端点 2（CDC 通知端点）
@@ -314,11 +314,16 @@ static int UsbIntrExample(XUsbPs *UsbInstancePtr, UINTPTR BaseAddress)
 	/* 启动USB引擎 */
 	XUsbPs_Start(UsbInstancePtr);
 
-	printf("USB CDC-ACM Virtual Serial Port Device started on ZYNQ7010\r\n");
-	printf("Hardware: USB3320C-EZK PHY - USB 2.0 High-Speed Optimized\r\n");
-	printf("Endpoint Size: 512 bytes (High-Speed Mode)\r\n");
-	printf("Max Throughput: ~480 Mbps (vs 12 Mbps full-speed)\r\n");
-	printf("=====================================================\r\n");
+	printf("ZYNQ7010 USB CDC-ACM Virtual Serial Port - Deep Compatibility Mode\r\n");
+	printf("=================================================================\r\n");
+	printf("Hardware: USB3320C-EZK PHY Controller\r\n");
+	printf("Crystal: 24MHz, Power: 1.8V, Interface: ULPI\r\n");
+	printf("Device Class: CDC (0x02) - Maximum Compatibility\r\n");
+	printf("Vendor ID: 0x04B4 (Cypress), Product ID: 0x0008\r\n");
+	printf("Endpoint Size: 64 bytes (USB 2.0 Full Speed Compatible)\r\n");
+	printf("Power Mode: Bus Powered (100mA)\r\n");
+	printf("Status: Starting USB enumeration debugging...\r\n");
+	printf("=================================================================\r\n");
 	printf("Waiting for USB host connection...\r\n");
 	printf("Device will appear as a virtual serial port (COM port) on host.\r\n");
 	printf("Connect USB cable and use serial terminal to communicate.\r\n\r\n");

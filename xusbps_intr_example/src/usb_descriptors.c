@@ -80,7 +80,7 @@ typedef struct
 #define CDC_DATA_IN_EP 1	  // 端点1用于数据输入 (IN to Host)
 
 #define CDC_NOTIFICATION_EPSIZE 16 // 中断端点大小
-#define CDC_DATA_EPSIZE 512		   // Bulk 端点大小 (高速模式，适配 USB3320C-EZK 高速能力)
+#define CDC_DATA_EPSIZE 64		   // Bulk 端点大小 (兼容性优先，自动协商高速)
 
 	/*****************************************************************************/
 	/**
@@ -99,32 +99,43 @@ typedef struct
 		USB_STD_DEV_DESC deviceDesc = {
 			sizeof(USB_STD_DEV_DESC), /* bLength */
 			USB_DEVICE_DESC,		  /* bDescriptorType */
-			be2les(0x0200),			  /* bcdUSB 2.0 (支持高速模式) */
-			0xEF,					  /* bDeviceClass - Miscellaneous Device Class */
-			0x02,					  /* bDeviceSubClass - Common Class */
-			0x01,					  /* bDeviceProtocol - Interface Association Descriptor */
+			be2les(0x0200),			  /* bcdUSB 2.0 */
+			0x02,					  /* bDeviceClass - CDC Communication Device Class */
+			0x00,					  /* bDeviceSubClass - Unused at device level */
+			0x00,					  /* bDeviceProtocol - Unused at device level */
 			USB_ENDPOINT0_MAXP,		  /* bMaxPacketSize0 */
-			be2les(0x04B4),			  /* idVendor - Cypress (示例) 或 Xilinx (0x03FD) */
-			be2les(0x0008),			  /* idProduct - 示例 CDC 产品 ID (高速优化) */
-			be2les(0x0200),			  /* bcdDevice (版本 2.0 - 高速优化) */
+			be2les(0x04B4),			  /* idVendor - Cypress (兼容性测试) */
+			be2les(0x0008),			  /* idProduct - CDC设备 */
+			be2les(0x0100),			  /* bcdDevice (版本 1.0) */
 			0x01,					  /* iManufacturer */
 			0x02,					  /* iProduct */
 			0x03,					  /* iSerialNumber */
 			0x01					  /* bNumConfigurations */
 		};
+		
+		// 添加调试信息
+		printf("Device Descriptor Request: BufLen=%d, DescSize=%d\r\n", 
+			   (int)BufLen, (int)sizeof(USB_STD_DEV_DESC));
+		printf("Device Class: CDC (0x02), VID:PID = 0x04B4:0x0008\r\n");
 
 		/* 检查缓冲区指针是否存在以及缓冲区是否足够大。 */
 		if (!BufPtr)
 		{
+			printf("ERROR: Device descriptor buffer pointer is NULL\r\n");
 			return 0;
 		}
 
 		if (BufLen < sizeof(USB_STD_DEV_DESC))
 		{
+			printf("ERROR: Device descriptor buffer too small: %d < %d\r\n", 
+				   (int)BufLen, (int)sizeof(USB_STD_DEV_DESC));
 			return 0;
 		}
 
 		memcpy(BufPtr, &deviceDesc, sizeof(USB_STD_DEV_DESC));
+		
+		printf("Device Descriptor sent successfully: %d bytes\r\n", 
+			   (int)sizeof(USB_STD_DEV_DESC));
 
 		return sizeof(USB_STD_DEV_DESC);
 	}
@@ -143,7 +154,7 @@ typedef struct
 	 ******************************************************************************/
 	uint32_t XUsbPs_Ch9SetupCfgDescReply(uint8_t *BufPtr, uint32_t BufLen)
 	{
-		// 使用新的完整 CDC 配置描述符结构
+		// 使用简化的 CDC 配置描述符结构（不使用IAD以提高兼容性）
 		USB_CDC_CONFIG_DESC_FULL config = {
 			/* 标准配置描述符 */
 			{
@@ -152,21 +163,21 @@ typedef struct
 				be2les(sizeof(USB_CDC_CONFIG_DESC_FULL)), /* wTotalLength */
 				0x02,									  /* bNumInterfaces (CDC Control + CDC Data) */
 				0x01,									  /* bConfigurationValue */
-				0x04,									  /* iConfiguration (字符串描述符索引) */
-				0xC0,									  /* bmAttributes (自供电, 不支持远程唤醒) */
-				0xFA									  /* bMaxPower (500mA) */
+				0x04,									  /* iConfiguration */
+				0x80,									  /* bmAttributes (Bus Powered, 不支持远程唤醒) */
+				0x32									  /* bMaxPower (100mA - 降低功耗要求) */
 			},
 
-			/* 接口关联描述符 (IAD) */
+			/* 接口关联描述符 (IAD) - 暂时保留但简化 */
 			{
 				sizeof(USB_STD_IAD_DESC),		   /* bLength */
 				XUSBPS_TYPE_INTERFACE_ASSOCIATION, /* bDescriptorType (0x0B) */
-				0x00,							   /* bFirstInterface (CDC Control Interface Number) */
-				0x02,							   /* bInterfaceCount (CDC Control + Data) */
-				XUSBPS_CLASS_CDC,				   /* bFunctionClass (Communication Device Class) */
-				XUSBPS_CDC_SUBCLASS_ACM,		   /* bFunctionSubClass (Abstract Control Model) */
-				XUSBPS_CDC_PROTOCOL_V25TER,		   /* bFunctionProtocol (AT Commands V.25ter) */
-				0x05							   /* iFunction (字符串描述符索引 for "CDC ACM") */
+				0x00,							   /* bFirstInterface */
+				0x02,							   /* bInterfaceCount */
+				XUSBPS_CLASS_CDC,				   /* bFunctionClass */
+				XUSBPS_CDC_SUBCLASS_ACM,		   /* bFunctionSubClass */
+				0x00,							   /* bFunctionProtocol (无特定协议) */
+				0x05							   /* iFunction */
 			},
 
 			/* CDC 控制接口描述符 */
@@ -175,11 +186,11 @@ typedef struct
 				USB_INTERFACE_CFG_DESC,		/* bDescriptorType */
 				0x00,						/* bInterfaceNumber */
 				0x00,						/* bAlternateSetting */
-				0x01,						/* bNumEndPoints (1 for Notification EP) */
-				XUSBPS_CLASS_CDC,			/* bInterfaceClass (Communication Device Class) */
-				XUSBPS_CDC_SUBCLASS_ACM,	/* bInterfaceSubClass (Abstract Control Model) */
-				XUSBPS_CDC_PROTOCOL_V25TER, /* bInterfaceProtocol (AT Commands V.25ter) */
-				0x06						/* iInterface (字符串描述符索引 for "CDC Control") */
+				0x01,						/* bNumEndPoints */
+				XUSBPS_CLASS_CDC,			/* bInterfaceClass */
+				XUSBPS_CDC_SUBCLASS_ACM,	/* bInterfaceSubClass */
+				0x00,						/* bInterfaceProtocol (简化协议) */
+				0x06						/* iInterface */
 			},
 
 			/* CDC Header Functional Descriptor */
@@ -194,17 +205,17 @@ typedef struct
 			{
 				sizeof(USB_CDC_CALL_MGMT_FND_DESC), /* bFunctionLength */
 				XUSBPS_TYPE_CS_INTERFACE,			/* bDescriptorType */
-				XUSBPS_CDC_FND_CALL_MGMT,			/* bDescriptorSubtype (CALL_MGMT) */
-				0x00,								/* bmCapabilities (D0: No call mgmt, D1: Call mgmt over Data I/F) */
-				0x01								/* bDataInterface (Interface number of Data Class interface) */
+				XUSBPS_CDC_FND_CALL_MGMT,			/* bDescriptorSubtype */
+				0x01,								/* bmCapabilities (D0: Device handles call mgmt) */
+				0x01								/* bDataInterface */
 			},
 
 			/* CDC Abstract Control Management Functional Descriptor */
 			{
 				sizeof(USB_CDC_ACM_FND_DESC), /* bFunctionLength */
 				XUSBPS_TYPE_CS_INTERFACE,	  /* bDescriptorType */
-				XUSBPS_CDC_FND_ACM,			  /* bDescriptorSubtype (ACM) */
-				0x02						  /* bmCapabilities (D1: SET_LINE_CODING etc.) */
+				XUSBPS_CDC_FND_ACM,			  /* bDescriptorSubtype */
+				0x06						  /* bmCapabilities (SET_LINE_CODING, GET_LINE_CODING, SET_CONTROL_LINE_STATE) */
 			},
 
 			/* CDC Union Functional Descriptor */
@@ -259,25 +270,35 @@ typedef struct
 				0x00					 /* bInterval (Ignored for Bulk) */
 			}};
 
-		/* 检查缓冲区指针是否正常以及缓冲区是否足够大。 */
-		if (!BufPtr)
-		{
-			return 0;
-		}
+	/* 检查缓冲区指针是否正常以及缓冲区是否足够大。 */
+	if (!BufPtr)
+	{
+		printf("ERROR: Config descriptor buffer pointer is NULL\r\n");
+		return 0;
+	}
 
-		// 注意：这里应该比较 BufLen 和 sizeof(USB_CDC_CONFIG_DESC_FULL)
-		if (BufLen < sizeof(USB_CDC_CONFIG_DESC_FULL))
-		{
-			// 如果提供的缓冲区太小，可以考虑只复制 BufLen 字节
-			// 或者返回错误。标准的做法是返回0或实际复制的字节数。
-			// 为简单起见，如果缓冲区不足，我们目前返回0。
-			// 在实际应用中，主机通常会请求足够的长度。
-			return 0;
-		}
+	// 注意：这里应该比较 BufLen 和 sizeof(USB_CDC_CONFIG_DESC_FULL)
+	if (BufLen < sizeof(USB_CDC_CONFIG_DESC_FULL))
+	{
+		printf("WARNING: Config descriptor buffer small: %d < %d\r\n", 
+			   (int)BufLen, (int)sizeof(USB_CDC_CONFIG_DESC_FULL));
+		// 如果缓冲区太小，可以考虑只复制 BufLen 字节
+		// 或者返回错误。标准的做法是返回0或实际复制的字节数。
+		// 为简单起见，如果缓冲区不足，我们目前返回0。
+		// 在实际应用中，主机通常会请求足够的长度。
+		return 0;
+	}
 
-		memcpy(BufPtr, &config, sizeof(USB_CDC_CONFIG_DESC_FULL));
+	// 添加配置描述符调试信息
+	printf("Config Descriptor Request: BufLen=%d, ConfigSize=%d\r\n", 
+		   (int)BufLen, (int)sizeof(USB_CDC_CONFIG_DESC_FULL));
 
-		return sizeof(USB_CDC_CONFIG_DESC_FULL);
+	memcpy(BufPtr, &config, sizeof(USB_CDC_CONFIG_DESC_FULL));
+	
+	printf("Config Descriptor sent successfully: %d bytes\r\n", 
+		   (int)sizeof(USB_CDC_CONFIG_DESC_FULL));
+
+	return sizeof(USB_CDC_CONFIG_DESC_FULL);
 	}
 
 	/*****************************************************************************/
