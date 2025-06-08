@@ -1,4 +1,4 @@
-# 2025-06-08T22:39:42.193860100
+# 2025-06-08T22:02:44.464855200
 import vitis
 
 client = vitis.create_client()
@@ -9,4 +9,10 @@ status = platform.build()
 
 comp = client.get_component(name="xusbps_intr_example")
 comp.build()
+
+status = platform.build()
+
+comp.build()
+
+vitis.dispose()
 

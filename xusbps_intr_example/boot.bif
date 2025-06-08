@@ -1,0 +1,7 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	[bootloader]E:\FPGAproject\pstest\platform\export\platform\sw\boot\fsbl.elf
+	E:\FPGAproject\pstest\xusbps_intr_example\_ide\bitstream\design_1_wrapper.bit
+	E:\FPGAproject\pstest\xusbps_intr_example\build\xusbps_intr_example.elf
+}
