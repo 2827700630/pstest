@@ -109,7 +109,7 @@ build install/strip: phony CMakeFiles/install/strip.util
 #############################################
 # Utility command for combined
 
-build libsrc/combined: phony libsrc/CMakeFiles/combined libsrc/coresightps_dcc/src/libcoresightps_dcc.a libsrc/devcfg/src/libdevcfg.a libsrc/dmaps/src/libdmaps.a libsrc/gpiops/src/libgpiops.a libsrc/scugic/src/libscugic.a libsrc/scutimer/src/libscutimer.a libsrc/scuwdt/src/libscuwdt.a libsrc/uartps/src/libuartps.a libsrc/usbps/src/libusbps.a libsrc/xadcps/src/libxadcps.a
+build libsrc/combined: phony libsrc/CMakeFiles/combined libsrc/coresightps_dcc/src/libcoresightps_dcc.a libsrc/devcfg/src/libdevcfg.a libsrc/dmaps/src/libdmaps.a libsrc/gpiops/src/libgpiops.a libsrc/qspips/src/libqspips.a libsrc/scugic/src/libscugic.a libsrc/scutimer/src/libscutimer.a libsrc/scuwdt/src/libscuwdt.a libsrc/sdps/src/libsdps.a libsrc/uartps/src/libuartps.a libsrc/usbps/src/libusbps.a libsrc/xadcps/src/libxadcps.a
 
 
 #############################################
@@ -180,7 +180,7 @@ build libsrc/install/strip: phony libsrc/CMakeFiles/install/strip.util
 #############################################
 # Custom command for libsrc\CMakeFiles\combined
 
-build libsrc/CMakeFiles/combined | ${cmake_ninja_workdir}libsrc/CMakeFiles/combined: CUSTOM_COMMAND libsrc/coresightps_dcc/src/libcoresightps_dcc.a libsrc/devcfg/src/libdevcfg.a libsrc/dmaps/src/libdmaps.a libsrc/gpiops/src/libgpiops.a libsrc/scugic/src/libscugic.a libsrc/scutimer/src/libscutimer.a libsrc/scuwdt/src/libscuwdt.a libsrc/uartps/src/libuartps.a libsrc/usbps/src/libusbps.a libsrc/xadcps/src/libxadcps.a || libsrc/coresightps_dcc/src/libcoresightps_dcc.a libsrc/devcfg/src/libdevcfg.a libsrc/dmaps/src/libdmaps.a libsrc/gpiops/src/libgpiops.a libsrc/scugic/src/libscugic.a libsrc/scutimer/src/libscutimer.a libsrc/scuwdt/src/libscuwdt.a libsrc/uartps/src/libuartps.a libsrc/usbps/src/libusbps.a libsrc/xadcps/src/libxadcps.a
+build libsrc/CMakeFiles/combined | ${cmake_ninja_workdir}libsrc/CMakeFiles/combined: CUSTOM_COMMAND libsrc/coresightps_dcc/src/libcoresightps_dcc.a libsrc/devcfg/src/libdevcfg.a libsrc/dmaps/src/libdmaps.a libsrc/gpiops/src/libgpiops.a libsrc/qspips/src/libqspips.a libsrc/scugic/src/libscugic.a libsrc/scutimer/src/libscutimer.a libsrc/scuwdt/src/libscuwdt.a libsrc/sdps/src/libsdps.a libsrc/uartps/src/libuartps.a libsrc/usbps/src/libusbps.a libsrc/xadcps/src/libxadcps.a || libsrc/coresightps_dcc/src/libcoresightps_dcc.a libsrc/devcfg/src/libdevcfg.a libsrc/dmaps/src/libdmaps.a libsrc/gpiops/src/libgpiops.a libsrc/qspips/src/libqspips.a libsrc/scugic/src/libscugic.a libsrc/scutimer/src/libscutimer.a libsrc/scuwdt/src/libscuwdt.a libsrc/sdps/src/libsdps.a libsrc/uartps/src/libuartps.a libsrc/usbps/src/libusbps.a libsrc/xadcps/src/libxadcps.a
   COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp && arm-none-eabi-ar -M<E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libxil.mri && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -E copy E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libxil.a E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/lib"
 
 # =============================================================================
@@ -765,6 +765,143 @@ build libsrc/gpiops/src/install/strip: phony libsrc/gpiops/src/CMakeFiles/instal
 # =============================================================================
 
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target qspips
+
+
+#############################################
+# Order-only phony target for qspips
+
+build cmake_object_order_depends_target_qspips: phony || libsrc/qspips/src/CMakeFiles/qspips.dir
+
+build libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips.c.obj: C_COMPILER__qspips_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/qspips/src/xqspips.c || cmake_object_order_depends_target_qspips
+  DEP_FILE = libsrc\qspips\src\CMakeFiles\qspips.dir\xqspips.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+  OBJECT_FILE_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+
+build libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_g.c.obj: C_COMPILER__qspips_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/qspips/src/xqspips_g.c || cmake_object_order_depends_target_qspips
+  DEP_FILE = libsrc\qspips\src\CMakeFiles\qspips.dir\xqspips_g.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+  OBJECT_FILE_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+
+build libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_hw.c.obj: C_COMPILER__qspips_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/qspips/src/xqspips_hw.c || cmake_object_order_depends_target_qspips
+  DEP_FILE = libsrc\qspips\src\CMakeFiles\qspips.dir\xqspips_hw.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+  OBJECT_FILE_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+
+build libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_options.c.obj: C_COMPILER__qspips_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/qspips/src/xqspips_options.c || cmake_object_order_depends_target_qspips
+  DEP_FILE = libsrc\qspips\src\CMakeFiles\qspips.dir\xqspips_options.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+  OBJECT_FILE_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+
+build libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_selftest.c.obj: C_COMPILER__qspips_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/qspips/src/xqspips_selftest.c || cmake_object_order_depends_target_qspips
+  DEP_FILE = libsrc\qspips\src\CMakeFiles\qspips.dir\xqspips_selftest.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+  OBJECT_FILE_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+
+build libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_sinit.c.obj: C_COMPILER__qspips_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/qspips/src/xqspips_sinit.c || cmake_object_order_depends_target_qspips
+  DEP_FILE = libsrc\qspips\src\CMakeFiles\qspips.dir\xqspips_sinit.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+  OBJECT_FILE_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target qspips
+
+
+#############################################
+# Link the static library libsrc\qspips\src\libqspips.a
+
+build libsrc/qspips/src/libqspips.a: C_STATIC_LIBRARY_LINKER__qspips_ libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips.c.obj libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_g.c.obj libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_hw.c.obj libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_options.c.obj libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_selftest.c.obj libsrc/qspips/src/CMakeFiles/qspips.dir/xqspips_sinit.c.obj
+  LANGUAGE_COMPILE_FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include
+  OBJECT_DIR = libsrc\qspips\src\CMakeFiles\qspips.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libsrc\qspips\src\libqspips.a
+  TARGET_PDB = qspips.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build libsrc/qspips/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\qspips\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build libsrc/qspips/src/edit_cache: phony libsrc/qspips/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build libsrc/qspips/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\qspips\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe --regenerate-during-build -SE:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -BE:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build libsrc/qspips/src/rebuild_cache: phony libsrc/qspips/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build libsrc/qspips/src/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build libsrc/qspips/src/CMakeFiles/install.util: CUSTOM_COMMAND libsrc/qspips/src/all
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\qspips\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build libsrc/qspips/src/install: phony libsrc/qspips/src/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build libsrc/qspips/src/CMakeFiles/install/local.util: CUSTOM_COMMAND libsrc/qspips/src/all
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\qspips\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build libsrc/qspips/src/install/local: phony libsrc/qspips/src/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build libsrc/qspips/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND libsrc/qspips/src/all
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\qspips\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build libsrc/qspips/src/install/strip: phony libsrc/qspips/src/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
 # Object build statements for STATIC_LIBRARY target scugic
 
 
@@ -1141,6 +1278,143 @@ build libsrc/scuwdt/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND libsrc/scu
   restat = 1
 
 build libsrc/scuwdt/src/install/strip: phony libsrc/scuwdt/src/CMakeFiles/install/strip.util
+
+# =============================================================================
+# Write statements declared in CMakeLists.txt:
+# E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/CMakeLists.txt
+# =============================================================================
+
+# =============================================================================
+# Object build statements for STATIC_LIBRARY target sdps
+
+
+#############################################
+# Order-only phony target for sdps
+
+build cmake_object_order_depends_target_sdps: phony || libsrc/sdps/src/CMakeFiles/sdps.dir
+
+build libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_host.c.obj: C_COMPILER__sdps_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/sdps/src/xsdps_host.c || cmake_object_order_depends_target_sdps
+  DEP_FILE = libsrc\sdps\src\CMakeFiles\sdps.dir\xsdps_host.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+  OBJECT_FILE_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+
+build libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_options.c.obj: C_COMPILER__sdps_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/sdps/src/xsdps_options.c || cmake_object_order_depends_target_sdps
+  DEP_FILE = libsrc\sdps\src\CMakeFiles\sdps.dir\xsdps_options.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+  OBJECT_FILE_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+
+build libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_card.c.obj: C_COMPILER__sdps_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/sdps/src/xsdps_card.c || cmake_object_order_depends_target_sdps
+  DEP_FILE = libsrc\sdps\src\CMakeFiles\sdps.dir\xsdps_card.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+  OBJECT_FILE_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+
+build libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_sinit.c.obj: C_COMPILER__sdps_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/sdps/src/xsdps_sinit.c || cmake_object_order_depends_target_sdps
+  DEP_FILE = libsrc\sdps\src\CMakeFiles\sdps.dir\xsdps_sinit.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+  OBJECT_FILE_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+
+build libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps.c.obj: C_COMPILER__sdps_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/sdps/src/xsdps.c || cmake_object_order_depends_target_sdps
+  DEP_FILE = libsrc\sdps\src\CMakeFiles\sdps.dir\xsdps.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+  OBJECT_FILE_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+
+build libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_g.c.obj: C_COMPILER__sdps_ E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/sdps/src/xsdps_g.c || cmake_object_order_depends_target_sdps
+  DEP_FILE = libsrc\sdps\src\CMakeFiles\sdps.dir\xsdps_g.c.obj.d
+  FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include   -c  -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
+  INCLUDES = -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/include -isystem E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include -isystem E:/FPGA/2025.1/gnu/aarch32/nt/gcc-arm-none-eabi/x86_64-oesdk-mingw32/usr/lib/arm-xilinx-eabi/gcc/arm-xilinx-eabi/13.3.0/include-fixed -isystem E:/FPGA/2025.1/Vitis/gnu/aarch32/nt/gcc-arm-none-eabi/aarch32-xilinx-eabi/usr/include
+  OBJECT_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+  OBJECT_FILE_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target sdps
+
+
+#############################################
+# Link the static library libsrc\sdps\src\libsdps.a
+
+build libsrc/sdps/src/libsdps.a: C_STATIC_LIBRARY_LINKER__sdps_ libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_host.c.obj libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_options.c.obj libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_card.c.obj libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_sinit.c.obj libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps.c.obj libsrc/sdps/src/CMakeFiles/sdps.dir/xsdps_g.c.obj
+  LANGUAGE_COMPILE_FLAGS = -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard  -MMD -MP -specs=E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Xilinx.spec -IE:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/include
+  OBJECT_DIR = libsrc\sdps\src\CMakeFiles\sdps.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_FILE = libsrc\sdps\src\libsdps.a
+  TARGET_PDB = sdps.a.dbg
+
+
+#############################################
+# Utility command for edit_cache
+
+build libsrc/sdps/src/CMakeFiles/edit_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\sdps\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -E echo "No interactive CMake dialog available.""
+  DESC = No interactive CMake dialog available...
+  restat = 1
+
+build libsrc/sdps/src/edit_cache: phony libsrc/sdps/src/CMakeFiles/edit_cache.util
+
+
+#############################################
+# Utility command for rebuild_cache
+
+build libsrc/sdps/src/CMakeFiles/rebuild_cache.util: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\sdps\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe --regenerate-during-build -SE:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp -BE:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp"
+  DESC = Running CMake to regenerate build system...
+  pool = console
+  restat = 1
+
+build libsrc/sdps/src/rebuild_cache: phony libsrc/sdps/src/CMakeFiles/rebuild_cache.util
+
+
+#############################################
+# Utility command for list_install_components
+
+build libsrc/sdps/src/list_install_components: phony
+
+
+#############################################
+# Utility command for install
+
+build libsrc/sdps/src/CMakeFiles/install.util: CUSTOM_COMMAND libsrc/sdps/src/all
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\sdps\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -P cmake_install.cmake"
+  DESC = Install the project...
+  pool = console
+  restat = 1
+
+build libsrc/sdps/src/install: phony libsrc/sdps/src/CMakeFiles/install.util
+
+
+#############################################
+# Utility command for install/local
+
+build libsrc/sdps/src/CMakeFiles/install/local.util: CUSTOM_COMMAND libsrc/sdps/src/all
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\sdps\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake"
+  DESC = Installing only the local directory...
+  pool = console
+  restat = 1
+
+build libsrc/sdps/src/install/local: phony libsrc/sdps/src/CMakeFiles/install/local.util
+
+
+#############################################
+# Utility command for install/strip
+
+build libsrc/sdps/src/CMakeFiles/install/strip.util: CUSTOM_COMMAND libsrc/sdps/src/all
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\gen_bsp\libsrc\sdps\src && E:\FPGA\2025.1\tps\win64\cmake-3.24.2\bin\cmake.exe -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake"
+  DESC = Installing the project stripped...
+  pool = console
+  restat = 1
+
+build libsrc/sdps/src/install/strip: phony libsrc/sdps/src/CMakeFiles/install/strip.util
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -2737,11 +3011,15 @@ build libdmaps.a: phony libsrc/dmaps/src/libdmaps.a
 
 build libgpiops.a: phony libsrc/gpiops/src/libgpiops.a
 
+build libqspips.a: phony libsrc/qspips/src/libqspips.a
+
 build libscugic.a: phony libsrc/scugic/src/libscugic.a
 
 build libscutimer.a: phony libsrc/scutimer/src/libscutimer.a
 
 build libscuwdt.a: phony libsrc/scuwdt/src/libscuwdt.a
+
+build libsdps.a: phony libsrc/sdps/src/libsdps.a
 
 build libuartps.a: phony libsrc/uartps/src/libuartps.a
 
@@ -2753,11 +3031,15 @@ build libxilstandalone.a: phony libsrc/standalone/src/libxilstandalone.a
 
 build libxiltimer.a: phony libsrc/xiltimer/src/libxiltimer.a
 
+build qspips: phony libsrc/qspips/src/libqspips.a
+
 build scugic: phony libsrc/scugic/src/libscugic.a
 
 build scutimer: phony libsrc/scutimer/src/libscutimer.a
 
 build scuwdt: phony libsrc/scuwdt/src/libscuwdt.a
+
+build sdps: phony libsrc/sdps/src/libsdps.a
 
 build uartps: phony libsrc/uartps/src/libuartps.a
 
@@ -2784,7 +3066,7 @@ build all: phony libsrc/all libsrc/standalone/src/all libsrc/xiltimer/src/all
 #############################################
 # Folder: E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libsrc
 
-build libsrc/all: phony libsrc/combined libsrc/common/src/all libsrc/coresightps_dcc/src/all libsrc/devcfg/src/all libsrc/dmaps/src/all libsrc/gpiops/src/all libsrc/scugic/src/all libsrc/scutimer/src/all libsrc/scuwdt/src/all libsrc/uartps/src/all libsrc/usbps/src/all libsrc/xadcps/src/all
+build libsrc/all: phony libsrc/combined libsrc/common/src/all libsrc/coresightps_dcc/src/all libsrc/devcfg/src/all libsrc/dmaps/src/all libsrc/gpiops/src/all libsrc/qspips/src/all libsrc/scugic/src/all libsrc/scutimer/src/all libsrc/scuwdt/src/all libsrc/sdps/src/all libsrc/uartps/src/all libsrc/usbps/src/all libsrc/xadcps/src/all
 
 # =============================================================================
 
@@ -2824,6 +3106,13 @@ build libsrc/gpiops/src/all: phony libsrc/gpiops/src/libgpiops.a
 # =============================================================================
 
 #############################################
+# Folder: E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libsrc/qspips/src
+
+build libsrc/qspips/src/all: phony libsrc/qspips/src/libqspips.a
+
+# =============================================================================
+
+#############################################
 # Folder: E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libsrc/scugic/src
 
 build libsrc/scugic/src/all: phony libsrc/scugic/src/libscugic.a
@@ -2841,6 +3130,13 @@ build libsrc/scutimer/src/all: phony libsrc/scutimer/src/libscutimer.a
 # Folder: E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libsrc/scuwdt/src
 
 build libsrc/scuwdt/src/all: phony libsrc/scuwdt/src/libscuwdt.a
+
+# =============================================================================
+
+#############################################
+# Folder: E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/gen_bsp/libsrc/sdps/src
+
+build libsrc/sdps/src/all: phony libsrc/sdps/src/libsdps.a
 
 # =============================================================================
 
@@ -2947,14 +3243,14 @@ build libsrc/xiltimer/src/core/default_timer/all: phony
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.24.2/CMakeASMCompiler.cmake CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeASMInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCXXInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeGenericSystem.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-ASM.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-C.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Platform/Generic.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Findcommon.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Findcommonmeta.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/cortexa9_toolchain.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/DRVLISTConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/common/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/coresightps_dcc/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/devcfg/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/dmaps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/gpiops/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scugic/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scugic/src/SCUGICConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scutimer/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scuwdt/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/MemConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/common/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/common/gcc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/cortexa9/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/cortexa9/gcc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/bspconfig.h.in E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/StandaloneExample.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/intr/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/xilstandalone.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/uartps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/usbps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xadcps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/XiltimerExample.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/core/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/core/default_timer/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/xiltimer.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/xtimer_config.h.in
+build build.ninja: RERUN_CMAKE | CMakeCache.txt CMakeFiles/3.24.2/CMakeASMCompiler.cmake CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeASMInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCXXInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeGenericSystem.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-ASM.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-C.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Platform/Generic.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Findcommon.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Findcommonmeta.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/cortexa9_toolchain.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/DRVLISTConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/common/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/coresightps_dcc/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/devcfg/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/dmaps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/gpiops/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/qspips/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scugic/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scugic/src/SCUGICConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scutimer/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scuwdt/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/sdps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/MemConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/common/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/common/gcc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/cortexa9/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/cortexa9/gcc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/bspconfig.h.in E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/StandaloneExample.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/intr/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/xilstandalone.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/uartps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/usbps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xadcps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/XiltimerExample.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/core/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/core/default_timer/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/xiltimer.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/xtimer_config.h.in
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build CMakeCache.txt CMakeFiles/3.24.2/CMakeASMCompiler.cmake CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeASMInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCXXInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeGenericSystem.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-ASM.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-C.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Platform/Generic.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Findcommon.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Findcommonmeta.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/cortexa9_toolchain.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/DRVLISTConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/common/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/coresightps_dcc/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/devcfg/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/dmaps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/gpiops/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scugic/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scugic/src/SCUGICConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scutimer/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scuwdt/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/MemConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/common/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/common/gcc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/cortexa9/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/cortexa9/gcc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/bspconfig.h.in E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/StandaloneExample.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/intr/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/xilstandalone.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/uartps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/usbps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xadcps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/XiltimerExample.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/core/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/core/default_timer/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/xiltimer.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/xtimer_config.h.in: phony
+build CMakeCache.txt CMakeFiles/3.24.2/CMakeASMCompiler.cmake CMakeFiles/3.24.2/CMakeCCompiler.cmake CMakeFiles/3.24.2/CMakeCXXCompiler.cmake CMakeFiles/3.24.2/CMakeSystem.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeASMInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCXXInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeCommonLanguageInclude.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeGenericSystem.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeInitializeConfigs.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeLanguageInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeSystemSpecificInformation.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/CMakeSystemSpecificInitialize.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/CMakeCommonCompilerMacros.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-ASM.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-C.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU-CXX.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Compiler/GNU.cmake E$:/FPGA/2025.1/tps/win64/cmake-3.24.2/share/cmake-3.24/Modules/Platform/Generic.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Findcommon.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/Findcommonmeta.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/cortexa9_toolchain.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/DRVLISTConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/common/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/coresightps_dcc/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/devcfg/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/dmaps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/gpiops/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/qspips/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scugic/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scugic/src/SCUGICConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scutimer/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scuwdt/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/sdps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/MemConfig.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/common/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/common/gcc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/cortexa9/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/arm/cortexa9/gcc/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/bspconfig.h.in E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/StandaloneExample.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/common/intr/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/standalone/src/xilstandalone.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/uartps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/usbps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xadcps/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/XiltimerExample.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/core/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/core/default_timer/CMakeLists.txt E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/xiltimer.cmake E$:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/xiltimer/src/xtimer_config.h.in: phony
 
 
 #############################################

@@ -6,6 +6,13 @@
 	slrcount = <1>;
 	family = "Zynq";
 	speed_grade = "1";
+	ps7_qspi_linear_0_memory: memory@fc000000 {
+		compatible = "xlnx,ps7-qspi-linear-1.00.a-memory";
+		xlnx,ip-name = "ps7_qspi_linear";
+		device_type = "memory";
+		memory_type = "linear_flash";
+		reg = <0xfc000000 0x1000000>;
+	};
 	ps7_ddr_0_memory: memory@00100000 {
 		compatible = "xlnx,ps7-ddr-1.00.a";
 		xlnx,ip-name = "ps7_ddr";
@@ -31,8 +38,9 @@
 		stdout-path = "serial0:115200n8";
 	};
 	aliases {
-		serial0 = &uart0;
-		serial1 = &uart1;
+		serial0 = &uart1;
+		spi0 = &qspi;
+		serial1 = &uart0;
 		serial2 = &coresight;
 	};
 	cpus_a9: cpus-a9@0 {
@@ -58,9 +66,12 @@
 			      <0xf8f02000 &L2 0xf8f02000 0x1000>, 
 			      <0xf800c000 &ps7_ocmc_0 0xf800c000 0x1000>, 
 			      <0xf8891000 &ps7_pmu_0 0xf8891000 0x1000>, 
+			      <0xe000d000 &qspi 0xe000d000 0x1000>, 
+			      <0xfc000000 &ps7_qspi_linear_0_memory 0xfc000000 0x1000000>, 
 			      <0xf8f00000 &ps7_scuc_0 0xf8f00000 0xfd>, 
 			      <0xf8f00600 &scutimer 0xf8f00600 0x20>, 
 			      <0xf8f00620 &scuwdt 0xf8f00620 0xe0>, 
+			      <0xe0100000 &sdhci0 0xe0100000 0x1000>, 
 			      <0xf8000000 &slcr 0xf8000000 0x1000>, 
 			      <0xe0000000 &uart0 0xe0000000 0x1000>, 
 			      <0xe0001000 &uart1 0xe0001000 0x1000>, 

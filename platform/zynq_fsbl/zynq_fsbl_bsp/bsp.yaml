@@ -60,7 +60,7 @@ os_config:
       permission: read_write
       type: string
       value: ps7_uart_1
-      default: ps7_uart_0
+      default: ps7_uart_1
       options:
       - None
       - ps7_uart_0
@@ -72,7 +72,7 @@ os_config:
       permission: read_write
       type: string
       value: ps7_uart_1
-      default: ps7_uart_0
+      default: ps7_uart_1
       options:
       - None
       - ps7_uart_0
@@ -186,6 +186,10 @@ drv_info:
   ps7_ocmc_0: None
   ps7_pl310_0: None
   ps7_pmu_0: None
+  ps7_qspi_0:
+    driver: qspips
+    ip_name: ps7_qspi
+    path: E:\FPGA\2025.1\Vitis\data\embeddedsw\XilinxProcessorIPLib\drivers\qspips_v3_14
   ps7_scuc_0: None
   ps7_scutimer_0:
     driver: scutimer
@@ -195,6 +199,10 @@ drv_info:
     driver: scuwdt
     ip_name: ps7_scuwdt
     path: E:\FPGA\2025.1\Vitis\data\embeddedsw\XilinxProcessorIPLib\drivers\scuwdt_v2_6
+  ps7_sd_0:
+    driver: sdps
+    ip_name: ps7_sdio
+    path: E:\FPGA\2025.1\Vitis\data\embeddedsw\XilinxProcessorIPLib\drivers\sdps_v4_4
   ps7_slcr_0: None
   ps7_uart_0:
     driver: uartps

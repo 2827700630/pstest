@@ -67,6 +67,12 @@ build scugic_example: phony CMakeFiles/scugic_example xscugic_exlist.yaml
 
 
 #############################################
+# Utility command for qspips_example
+
+build qspips_example: phony CMakeFiles/qspips_example xqspips_exlist.yaml
+
+
+#############################################
 # Utility command for scutimer_example
 
 build scutimer_example: phony CMakeFiles/scutimer_example xscutimer_exlist.yaml
@@ -76,6 +82,12 @@ build scutimer_example: phony CMakeFiles/scutimer_example xscutimer_exlist.yaml
 # Utility command for scuwdt_example
 
 build scuwdt_example: phony CMakeFiles/scuwdt_example xscuwdt_exlist.yaml
+
+
+#############################################
+# Utility command for sdps_example
+
+build sdps_example: phony CMakeFiles/sdps_example xsdps_exlist.yaml
 
 
 #############################################
@@ -160,6 +172,14 @@ build CMakeFiles/scugic_example xscugic_exlist.yaml | ${cmake_ninja_workdir}CMak
 
 
 #############################################
+# Custom command for CMakeFiles\qspips_example
+
+build CMakeFiles/qspips_example xqspips_exlist.yaml | ${cmake_ninja_workdir}CMakeFiles/qspips_example ${cmake_ninja_workdir}xqspips_exlist.yaml: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\exmetadata && lopper -f -O E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/qspips E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/hw_artifacts/ps7_cortexa9_0_baremetal.dts -- bmcmake_metadata_xlnx ps7_cortexa9_0 E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/qspips_v3_14/examples drvcmake_metadata"
+  restat = 1
+
+
+#############################################
 # Custom command for CMakeFiles\scutimer_example
 
 build CMakeFiles/scutimer_example xscutimer_exlist.yaml | ${cmake_ninja_workdir}CMakeFiles/scutimer_example ${cmake_ninja_workdir}xscutimer_exlist.yaml: CUSTOM_COMMAND
@@ -172,6 +192,14 @@ build CMakeFiles/scutimer_example xscutimer_exlist.yaml | ${cmake_ninja_workdir}
 
 build CMakeFiles/scuwdt_example xscuwdt_exlist.yaml | ${cmake_ninja_workdir}CMakeFiles/scuwdt_example ${cmake_ninja_workdir}xscuwdt_exlist.yaml: CUSTOM_COMMAND
   COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\exmetadata && lopper -f -O E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/scuwdt E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/hw_artifacts/ps7_cortexa9_0_baremetal.dts -- bmcmake_metadata_xlnx ps7_cortexa9_0 E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/scuwdt_v2_6/examples drvcmake_metadata"
+  restat = 1
+
+
+#############################################
+# Custom command for CMakeFiles\sdps_example
+
+build CMakeFiles/sdps_example xsdps_exlist.yaml | ${cmake_ninja_workdir}CMakeFiles/sdps_example ${cmake_ninja_workdir}xsdps_exlist.yaml: CUSTOM_COMMAND
+  COMMAND = cmd.exe /C "cd /D E:\FPGAproject\pstest\platform\ps7_cortexa9_0\standalone_ps7_cortexa9_0\bsp\libsrc\build_configs\exmetadata && lopper -f -O E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/sdps E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/hw_artifacts/ps7_cortexa9_0_baremetal.dts -- bmcmake_metadata_xlnx ps7_cortexa9_0 E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/sdps_v4_4/examples drvcmake_metadata"
   restat = 1
 
 
@@ -209,7 +237,7 @@ build CMakeFiles/xadcps_example xxadcps_exlist.yaml | ${cmake_ninja_workdir}CMak
 #############################################
 # Folder: E:/FPGAproject/pstest/platform/ps7_cortexa9_0/standalone_ps7_cortexa9_0/bsp/libsrc/build_configs/exmetadata
 
-build all: phony coresightps_dcc_example devcfg_example dmaps_example gpiops_example scugic_example scutimer_example scuwdt_example uartps_example usbps_example xadcps_example
+build all: phony coresightps_dcc_example devcfg_example dmaps_example gpiops_example scugic_example qspips_example scutimer_example scuwdt_example sdps_example uartps_example usbps_example xadcps_example
 
 # =============================================================================
 # Built-in targets

@@ -7,7 +7,7 @@
 1.  **UART1 通信**：通过 PS (Processing System) 端的 UART1 外设向串口终端发送 "Hello World" 类型的消息。
 2.  **GPIO 控制**：通过 PS 端的 GPIO (General Purpose Input/Output) 控制连接到 MIO0 和 MIO13 引脚的两个 LED 灯，使它们以大约1秒的周期交替闪烁（每个状态持续约0.5秒）。
 
-本项目基于 Xilinx Vivado进行硬件设计和配置，使用 Xilinx Vitis 进行软件开发和调试。
+本项目基于 Xilinx Vivado（版本2025.1）进行硬件设计和配置，使用 Xilinx Vitis 进行软件开发和调试。
 
 **开发日期:** 2025-06-08 (根据对话模拟)
 

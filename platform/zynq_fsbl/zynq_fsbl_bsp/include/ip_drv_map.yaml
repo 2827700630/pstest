@@ -49,6 +49,9 @@ ps7_pl310_0:
 ps7_pmu_0:
 - ps7_pmu
 - None
+ps7_qspi_0:
+- ps7_qspi
+- qspips
 ps7_scuc_0:
 - ps7_scuc
 - None
@@ -58,6 +61,9 @@ ps7_scutimer_0:
 ps7_scuwdt_0:
 - ps7_scuwdt
 - scuwdt
+ps7_sd_0:
+- ps7_sdio
+- sdps
 ps7_slcr_0:
 - ps7_slcr
 - None

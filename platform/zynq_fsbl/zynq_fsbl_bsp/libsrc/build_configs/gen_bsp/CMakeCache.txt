@@ -419,6 +419,15 @@ proc_compiler_flags:STRING= -DSDT -mcpu=cortex-a9 -mfpu=vfpv3 -mfloat-abi=hard;-
 proc_extra_compiler_flags:STRING= -O2 -g -Wall -Wextra -fno-tree-loop-distribute-patterns
 
 //Value Computed by CMake
+qspips_BINARY_DIR:STATIC=E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/qspips/src
+
+//Value Computed by CMake
+qspips_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+qspips_SOURCE_DIR:STATIC=E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/qspips/src
+
+//Value Computed by CMake
 scugic_BINARY_DIR:STATIC=E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/scugic/src
 
 //Value Computed by CMake
@@ -444,6 +453,15 @@ scuwdt_IS_TOP_LEVEL:STATIC=OFF
 
 //Value Computed by CMake
 scuwdt_SOURCE_DIR:STATIC=E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/scuwdt/src
+
+//Value Computed by CMake
+sdps_BINARY_DIR:STATIC=E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/sdps/src
+
+//Value Computed by CMake
+sdps_IS_TOP_LEVEL:STATIC=OFF
+
+//Value Computed by CMake
+sdps_SOURCE_DIR:STATIC=E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/sdps/src
 
 //This option is not supported in the Unified Vitis IDE in this
 // version. Change to the classic IDE if you want to use this option
@@ -648,7 +666,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=27
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=29
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

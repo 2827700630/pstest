@@ -5,8 +5,8 @@ project(bsp)
 # Use CMAKE_LIBRARY_PATH in link_directories
 link_directories(${CMAKE_LIBRARY_PATH})
         
-set(DRIVER_TARGETS coresightps_dcc;devcfg;dmaps;gpiops;scugic;scutimer;scuwdt;uartps;usbps;xadcps)
-set(DRIVER_LOCATIONS E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/coresightps_dcc_v1_12;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/devcfg_v3_8;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/dmaps_v2_11;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/gpiops_v3_14;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/scugic_v5_5;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/scutimer_v2_7;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/scuwdt_v2_6;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/uartps_v3_16;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/usbps_v2_9;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/xadcps_v2_7)
+set(DRIVER_TARGETS coresightps_dcc;devcfg;dmaps;gpiops;scugic;qspips;scutimer;scuwdt;sdps;uartps;usbps;xadcps)
+set(DRIVER_LOCATIONS E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/coresightps_dcc_v1_12;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/devcfg_v3_8;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/dmaps_v2_11;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/gpiops_v3_14;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/scugic_v5_5;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/qspips_v3_14;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/scutimer_v2_7;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/scuwdt_v2_6;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/sdps_v4_4;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/uartps_v3_16;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/usbps_v2_9;E:/FPGA/2025.1/Vitis/data/embeddedsw/XilinxProcessorIPLib/drivers/xadcps_v2_7)
 
 list(LENGTH DRIVER_TARGETS no_of_drivers)
 set(index 0)

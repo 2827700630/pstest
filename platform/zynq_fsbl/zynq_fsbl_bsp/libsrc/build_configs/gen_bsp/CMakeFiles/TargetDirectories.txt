@@ -45,6 +45,13 @@ E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/gpiops/src/CMakeFiles/install.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/gpiops/src/CMakeFiles/install/local.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/gpiops/src/CMakeFiles/install/strip.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/qspips/src/CMakeFiles/qspips.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/qspips/src/CMakeFiles/edit_cache.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/qspips/src/CMakeFiles/rebuild_cache.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/qspips/src/CMakeFiles/list_install_components.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/qspips/src/CMakeFiles/install.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/qspips/src/CMakeFiles/install/local.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/qspips/src/CMakeFiles/install/strip.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/scugic/src/CMakeFiles/scugic.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/scugic/src/CMakeFiles/edit_cache.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/scugic/src/CMakeFiles/rebuild_cache.dir
@@ -66,6 +73,13 @@ E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/scuwdt/src/CMakeFiles/install.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/scuwdt/src/CMakeFiles/install/local.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/scuwdt/src/CMakeFiles/install/strip.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/sdps/src/CMakeFiles/sdps.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/sdps/src/CMakeFiles/edit_cache.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/sdps/src/CMakeFiles/rebuild_cache.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/sdps/src/CMakeFiles/list_install_components.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/sdps/src/CMakeFiles/install.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/sdps/src/CMakeFiles/install/local.dir
+E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/sdps/src/CMakeFiles/install/strip.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/uartps/src/CMakeFiles/uartps.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/uartps/src/CMakeFiles/edit_cache.dir
 E:/FPGAproject/pstest/platform/zynq_fsbl/zynq_fsbl_bsp/libsrc/build_configs/gen_bsp/libsrc/uartps/src/CMakeFiles/rebuild_cache.dir
