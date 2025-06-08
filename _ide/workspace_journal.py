@@ -1,22 +1,6 @@
-# 2025-06-08T17:02:24.884182300
+# 2025-06-08T19:24:26.591050700
 import vitis
 
 client = vitis.create_client()
 client.set_workspace(path="pstest")
-
-client.delete_component(name="platform")
-
-client.delete_component(name="componentName")
-
-client.delete_component(name="xgpiops_polled_example")
-
-advanced_options = client.create_advanced_options_dict(dt_overlay="0")
-
-platform = client.create_platform_component(name = "platform",hw_design = "$COMPONENT_LOCATION/../design_1_wrapper.xsa",os = "standalone",cpu = "ps7_cortexa9_0",domain_name = "standalone_ps7_cortexa9_0",generate_dtb = False,advanced_options = advanced_options,compiler = "gcc")
-
-platform = client.get_component(name="platform")
-status = platform.build()
-
-comp = client.get_component(name="xgpiops_polled_example")
-comp.build()
 

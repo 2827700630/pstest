@@ -9,13 +9,14 @@
 
 本项目基于 Xilinx Vivado（版本2025.1）进行硬件设计和配置，使用 Xilinx Vitis 进行软件开发和调试。
 
-**开发日期:** 2025-06-08 (根据对话模拟)
+**开发日期:** 2025-06-08
 
 ## 硬件环境
 
 *   **目标平台**：基于 Xilinx Zynq-7000 SoC 的开发板 (Alinx黑金7010)。
 *   **LED 连接**：
-    *   开发板一个 LED 连接到 PS MIO0 引脚。另一个 LED 连接到 PS MIO13 引脚。
+    *   开发板一个 LED 连接到 PS MIO0 引脚。
+    *   另一个 LED 连接到 PS MIO13 引脚。
 *   **UART 连接**：开发板上的 UART1 转 USB 接口，用于连接 PC 串口终端。
 
 ## 软件环境
@@ -25,18 +26,21 @@
 
 ## 开发步骤
 
+安装 Xilinx Vivado 和 Vitis 软件
+![Vivado 和 Vitis 安装截图](vivado_vitis_install.png)
+
 ### 1. Vivado硬件设计与配置
 
-1.  **创建 Vivado 工程**：选择对应的 Zynq-7000 器件型号（xc7z010clg400-1）。
-2.  **在block deseign添加 ZYNQ7 Processing System IP 核**：
+1.  **创建 Vivado 工程**：选择对应的 Zynq-7000 器件型号（`xc7z010clg400-1`）。
+2.  **在 Block Design 添加 ZYNQ7 Processing System IP 核**：
     *   **MIO 配置 (MIO Configuration)**：
         *   **UART1**：使能 UART1，并将其分配给合适的 MIO 引脚（例如，MIO 48 用于 TX，MIO 49 用于 RX，或根据开发板原理图选择）。
         *   **GPIO MIO**：使能 GPIO MIO。确保 MIO0 和 MIO13 未被其他外设占用，可作为 GPIO 使用。
-    *   **DDR 配置 (DDR Configuration)**：选择MT41J128M16HA-125。
+    *   **DDR 配置 (DDR Configuration)**：选择 `MT41J128M16HA-125`。
 3.  **连接端口**：
     *   运行自动配置 (Run Connection Automation)。
     *   如果使用了 Fabric Clock，将其连接到相应的时钟输入或设置为外部。
-    ![alt text](image.png)
+    ![Block Design 连接端口截图](block_design_ports.png)
 4.  **生成顶层 HDL Wrapper**。
 5.  **运行综合 (Synthesis) 和实现 (Implementation)**。
 6.  **生成 Bitstream (Generate Bitstream)**。
@@ -49,8 +53,8 @@
 
 1.  **创建 Platform Project**：
     *   启动 Vitis。
-    *   在example中，选择ZYNQ FSBL模板(重要)。
-    ![alt text](image-1.png)
+    *   在 example 中，选择 ZYNQ FSBL 模板 (重要)。
+    ![Vitis 创建 Platform Project 截图](vitis_platform_project.png)
     *   选择 `File > New > Platform Project...`。
     *   为平台项目命名。
     *   选择 "Create from hardware specification (XSA)"，并导入之前从 Vivado 导出的 XSA 文件。
@@ -136,16 +140,17 @@
 1.  在 Vitis 中，点击系统工程 (System Project) 或空白处，选择 "Create Boot Image"。
 2.  **指定输出路径**：通常命名为 `BOOT.BIN`。
 3.  点击 "Create Image" 生成 `BOOT.BIN` 文件。
-![alt text](image-2.png)
+    ![Vitis 创建启动镜像截图](vitis_boot_image.png)
 
 #### 4.2 烧录到 QSPI Flash
 
 1.  在 Vitis 顶部工具栏中，选择 `Vitis > Program Flash`。
-2.  **Image File**: 选择上一步生成的 `BOOT.BIN` 文件（可以点击search）。
-4.  **Flash Type**: 根据开发板实际使用的 QSPI Flash 型号选择。对于 Alinx 黑金7010（W25Q256FVEI），通常选择 `qspi-x4-single` 或兼容型号。**选择正确的 Flash 类型对于成功识别和烧录至关重要。**
-6.  点击 "Program"。Vitis 会使用 JTAG 连接将 `BOOT.BIN` 烧录到 QSPI Flash 中。
-![alt text](image-3.png)
-7.  **设置启动模式**：
+    ![Vitis Program Flash 截图](vitis_program_flash.png)
+2.  在 "Program Flash" 对话框中进行如下配置：
+    *   **Image File**: 选择上一步生成的 `BOOT.BIN` 文件（可以点击search）。
+    *   **Flash Type**: 根据开发板实际使用的 QSPI Flash 型号选择。对于 Alinx 黑金7010（W25Q256FVEI），通常选择 `qspi-x4-single` 或兼容型号。**选择正确的 Flash 类型对于成功识别和烧录至关重要。**
+3.  点击 "Program"。Vitis 会使用 JTAG 连接将 `BOOT.BIN` 烧录到 QSPI Flash 中。（可以从输出消息中查看flash型号，容量和已用容量）
+4.  **设置启动模式**：
     *   烧录完成后，断开开发板电源。
     *   **查阅你的开发板用户手册**，将启动模式引脚（通常是跳线帽或拨码开关）设置为从 QSPI Flash 启动。
     *   重新上电。
@@ -172,6 +177,7 @@
 ### 5. 关键代码片段
 
 (参考 `xgpiops_polled_example.c` 的修改版本)
+
 *   **GPIO 初始化与设置方向**
     ```c
     XGpioPs_Config *GpioConfigPtr;
@@ -199,7 +205,8 @@
     // ...
     XUartPs_SetBaudRate(&UartPs_Inst, 115200);
     // ...
-    char HelloWorld[] = "Hello World from UART1!\r\n";
+    char HelloWorld[] = "Hello World from UART1!
+";
     XUartPs_Send(&UartPs_Inst, (u8*)HelloWorld, strlen(HelloWorld));
     ```
 
