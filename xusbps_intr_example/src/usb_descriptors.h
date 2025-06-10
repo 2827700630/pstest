@@ -72,7 +72,17 @@ extern "C"
 #define XUSBPS_EPCR_TXT_INT_MASK 0x00080000     // TX中断传输
 
 /* 工具宏定义 */
-#define be2les(val) (val) // 小端字节序转换宏
+#ifdef __LITTLE_ENDIAN__
+    #define be2les(val) (val) // 小端字节序不需要转换
+#else
+    #define be2les(val) (((val) >> 8) | ((val) << 8)) // 大端字节序需要转换
+#endif
+
+// ARM处理器通常是小端字节序，但为了确保正确性，我们明确定义
+#ifndef __LITTLE_ENDIAN__
+    #define __LITTLE_ENDIAN__
+#endif
+#define le16(val) (val) // 明确的小端字节序宏
 
     /**************************** 类型定义 *******************************/
 

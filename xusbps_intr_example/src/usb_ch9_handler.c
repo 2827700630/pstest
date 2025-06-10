@@ -178,11 +178,14 @@ static void XUsbPs_StdDevReq(XUsbPs *InstancePtr,
 	TempPtr = (u8 *)&TmpBuffer;
 
 	/* 检查请求的回复长度是否大于我们的回复缓冲区。
-	 * 这应该永远不会发生...
+	 * 如果是，限制为缓冲区大小而不是返回错误
 	 */
+	u16 RequestedLength = SetupData->wLength;
 	if (SetupData->wLength > XUSBPS_REQ_REPLY_LEN)
 	{
-		return;
+		printf("WARNING: Large descriptor request (%d bytes) limited to buffer size (%d)\r\n", 
+			   SetupData->wLength, XUSBPS_REQ_REPLY_LEN);
+		SetupData->wLength = XUSBPS_REQ_REPLY_LEN;
 	}
 
 	UsbLocalPtr = (XUsbPs_Local *)InstancePtr->UserDataPtr;
@@ -195,6 +198,7 @@ static void XUsbPs_StdDevReq(XUsbPs *InstancePtr,
 	{
 
 	case XUSBPS_REQ_GET_STATUS:
+		printf("GET_STATUS Request: RequestType=0x%02X\r\n", SetupData->bmRequestType);
 
 		switch (SetupData->bmRequestType & XUSBPS_STATUS_MASK)
 		{
@@ -202,10 +206,12 @@ static void XUsbPs_StdDevReq(XUsbPs *InstancePtr,
 			/* 即使我们只使用前两个字节，
 			 * 似乎我们也不必担心将回复缓冲区的其余部分清零。
 			 */
+			printf("GET_STATUS: Device Status (self-powered)\r\n");
 			*((u16 *)&Reply[0]) = 0x1; /* 自供电 */
 			break;
 
 		case XUSBPS_STATUS_INTERFACE:
+			printf("GET_STATUS: Interface Status\r\n");
 			*((u16 *)&Reply[0]) = 0x0;
 			break;
 
@@ -349,19 +355,31 @@ static void XUsbPs_StdDevReq(XUsbPs *InstancePtr,
 
 			/* 使用字符串描述符数据设置回复缓冲区。
 			 */
+			printf("String Descriptor Request: Index=%d, Requested Length=%d\r\n", 
+				   SetupData->wValue & 0xFF, SetupData->wLength);
+			
 			ReplyLen = XUsbPs_Ch9SetupStrDescReply(
 				Reply, XUSBPS_REQ_REPLY_LEN,
 				SetupData->wValue & 0xFF);
 
 			ReplyLen = ReplyLen > SetupData->wLength ? SetupData->wLength : ReplyLen;
 
+			if (ReplyLen > 0) {
+				printf("Sending String Descriptor: %d bytes\r\n", ReplyLen);
+			} else {
+				printf("ERROR: String descriptor preparation failed\r\n");
+			}
+
 			Status = XUsbPs_EpBufferSend(InstancePtr, 0,
 										 Reply, ReplyLen);
 			if (XST_SUCCESS != Status)
 			{
+				printf("ERROR: Failed to send string descriptor\r\n");
 				/* 需要处理故障情况 */
 				for (;;)
 					;
+			} else {
+				printf("String descriptor sent successfully via EP0\r\n");
 			}
 			break;
 
@@ -415,12 +433,14 @@ static void XUsbPs_StdDevReq(XUsbPs *InstancePtr,
 		break;
 
 	case XUSBPS_REQ_SET_CONFIGURATION:
+		printf("SET_CONFIGURATION Request: Config=%d\r\n", SetupData->wValue & 0xff);
 
 		/*
 		 *  允许配置索引 0 和 1。
 		 */
 		if (((SetupData->wValue & 0xff) != 1) && ((SetupData->wValue & 0xff) != 0))
 		{
+			printf("ERROR: Invalid configuration value: %d\r\n", SetupData->wValue & 0xff);
 			Error = 1;
 			break;
 		}
@@ -550,6 +570,8 @@ static void XUsbPs_StdDevReq(XUsbPs *InstancePtr,
 
 	/* 对于设置接口，检查主机想要的备用设置 */
 	case XUSBPS_REQ_SET_INTERFACE:
+		printf("SET_INTERFACE Request: Interface=%d, AltSetting=%d\r\n", 
+		       SetupData->wIndex, SetupData->wValue);
 
 #ifdef CH9_DEBUG
 		printf("设置接口 %d/%d\n", SetupData->wValue, SetupData->wIndex);

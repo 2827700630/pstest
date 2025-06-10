@@ -40,7 +40,7 @@
 3.  **连接端口**：
     *   运行自动配置 (Run Connection Automation)。
     *   如果使用了 Fabric Clock，将其连接到相应的时钟输入或设置为外部。
-    ![Block Design 连接端口截图](block_design_ports.png)
+    ![alt text](block_design_ports-1.png)
 4.  **生成顶层 HDL Wrapper**。
 5.  **运行综合 (Synthesis) 和实现 (Implementation)**。
 6.  **生成 Bitstream (Generate Bitstream)**。

@@ -102,25 +102,30 @@ s32 XUsbPs_Cdc_ClassReq(XUsbPs *InstancePtr, XUsbPs_SetupData *SetupData)
 {
     s32 Status = XST_SUCCESS;
     u32 ReplyLen;
+    
+    printf("CDC Class Request: Type=0x%02x, Req=0x%02x, Val=0x%04x, Idx=0x%04x, Len=%d\r\n",
+           SetupData->bmRequestType, SetupData->bRequest, SetupData->wValue, 
+           SetupData->wIndex, SetupData->wLength);
 
     // 确保请求是针对 CDC 控制接口 (通常是接口 0)
     // SetupData->wIndex 的低字节应该是接口号
     if ((SetupData->wIndex & 0xFF) != 0x00)
     { // 假设 CDC 控制接口是 0
         // 不是针对我们的控制接口，可能针对其他接口或无效请求
-        // xil_printf("CDC ClassReq: Request for wrong interface %x\r\n", SetupData->wIndex);
+        printf("CDC ClassReq: Request for wrong interface %x\r\n", SetupData->wIndex);
         // return XST_FAILURE; // 或者让上层处理 STALL
     }
 
     switch (SetupData->bRequest)
-    {
-    case XUSBPS_CDC_SET_LINE_CODING:
+    {    case XUSBPS_CDC_SET_LINE_CODING:
         // 主机希望设置线路编码
         // 数据将在控制 OUT 阶段发送
-        // xil_printf("CDC Req: SET_LINE_CODING, len %d\r\n", SetupData->wLength);
+        printf("CDC Req: SET_LINE_CODING, len %d\r\n", SetupData->wLength);
         if (SetupData->wLength != sizeof(XUsbPs_CdcLineCoding))
         {
             // 长度错误
+            printf("ERROR: SET_LINE_CODING invalid length: %d (expected %d)\r\n", 
+                   SetupData->wLength, sizeof(XUsbPs_CdcLineCoding));
             // XUsbPs_EpStall(InstancePtr, 0, XUSBPS_EP_DIRECTION_OUT);
             Status = XST_FAILURE;
             break;
@@ -131,40 +136,39 @@ s32 XUsbPs_Cdc_ClassReq(XUsbPs *InstancePtr, XUsbPs_SetupData *SetupData)
         // 这里我们只需要确认请求，并准备好在数据阶段后处理它
         // XUsbPs_EpBufferReceive(InstancePtr, 0, InstancePtr->Ep0DataBuffer, SetupData->wLength);
         // 状态阶段由驱动处理
-        break;
-
-    case XUSBPS_CDC_GET_LINE_CODING:
+        break;    case XUSBPS_CDC_GET_LINE_CODING:
         // 主机希望获取线路编码
-        // xil_printf("CDC Req: GET_LINE_CODING\r\n");
+        printf("CDC Req: GET_LINE_CODING\r\n");
         ReplyLen = sizeof(XUsbPs_CdcLineCoding);
         if (SetupData->wLength < ReplyLen)
         {
             // 主机请求的长度不足
+            printf("ERROR: GET_LINE_CODING insufficient length: %d (needed %d)\r\n",
+                   SetupData->wLength, ReplyLen);
             // XUsbPs_EpStall(InstancePtr, 0, XUSBPS_EP_DIRECTION_IN);
             Status = XST_FAILURE;
             break;
         }
         // 将当前的 LineCoding 复制到临时缓冲区，然后发送
+        printf("Sending LINE_CODING: rate=%d, format=%d, parity=%d, bits=%d\r\n",
+               CdcData.LineCoding.dwDTERate, CdcData.LineCoding.bCharFormat,
+               CdcData.LineCoding.bParityType, CdcData.LineCoding.bDataBits);
         memcpy(&Ep0LineCodingBuffer, &CdcData.LineCoding, ReplyLen);
         XUsbPs_EpBufferSend(InstancePtr, 0, (u8 *)&Ep0LineCodingBuffer, ReplyLen);
-        break;
-
-    case XUSBPS_CDC_SET_CONTROL_LINE_STATE:
+        break;    case XUSBPS_CDC_SET_CONTROL_LINE_STATE:
         // 主机设置控制线状态 (DTR, RTS)
-        // xil_printf("CDC Req: SET_CONTROL_LINE_STATE, value 0x%04X\r\n", SetupData->wValue);
+        printf("CDC Req: SET_CONTROL_LINE_STATE, value 0x%04X\r\n", SetupData->wValue);
         XUsbPs_Cdc_SetControlLineStateHandler(InstancePtr, SetupData->wValue);
         // 此请求通常没有数据阶段，只有状态阶段
         XUsbPs_EpBufferSend(InstancePtr, 0, NULL, 0); // 完成状态阶段
-        break;
-
-    case XUSBPS_CDC_SEND_ENCAPSULATED_COMMAND: // 0x00
+        break;    case XUSBPS_CDC_SEND_ENCAPSULATED_COMMAND: // 0x00
     case XUSBPS_CDC_GET_ENCAPSULATED_RESPONSE: // 0x01
     case XUSBPS_CDC_SET_COMM_FEATURE:          // 0x02
     case XUSBPS_CDC_GET_COMM_FEATURE:          // 0x03
     case XUSBPS_CDC_CLEAR_COMM_FEATURE:        // 0x04
     case XUSBPS_CDC_SEND_BREAK:                // 0x23
         // 这些是可选的 CDC 请求，当前示例中未实现
-        // xil_printf("CDC Req: Unhandled/Optional request 0x%02X\r\n", SetupData->bRequest);
+        printf("CDC Req: Unhandled/Optional request 0x%02X\r\n", SetupData->bRequest);
         // 对于未处理的请求，通常应该 STALL 端点0
         // XUsbPs_EpStall(InstancePtr, 0, XUSBPS_EP_DIRECTION_OUT); // 或 IN，取决于请求方向
         Status = XST_FAILURE; // 指示上层处理 STALL
@@ -240,21 +244,21 @@ void XUsbPs_Cdc_SetControlLineStateHandler(XUsbPs *InstancePtr, u16 ControlSigna
     (void)InstancePtr;
     CdcData.ControlLineState = ControlSignalBitmap;
 
-    // xil_printf("SET_CONTROL_LINE_STATE: DTR=%d, RTS=%d\r\n",
-    //            (CdcData.ControlLineState & XUSBPS_CDC_CTRL_STATE_DTR) ? 1 : 0,
-    //            (CdcData.ControlLineState & XUSBPS_CDC_CTRL_STATE_RTS) ? 1 : 0);
+    printf("SET_CONTROL_LINE_STATE: DTR=%d, RTS=%d\r\n",
+               (CdcData.ControlLineState & XUSBPS_CDC_CTRL_STATE_DTR) ? 1 : 0,
+               (CdcData.ControlLineState & XUSBPS_CDC_CTRL_STATE_RTS) ? 1 : 0);
 
     // 根据 DTR 状态更新连接状态
     if (CdcData.ControlLineState & XUSBPS_CDC_CTRL_STATE_DTR)
     {
         CdcData.IsHostConnected = 1;
-        // xil_printf("CDC Host Connected (DTR set)\r\n");
+        printf("CDC Host Connected (DTR set)\r\n");
         // TODO: 执行连接建立时的操作，例如准备接收数据
     }
     else
     {
         CdcData.IsHostConnected = 0;
-        // xil_printf("CDC Host Disconnected (DTR cleared)\r\n");
+        printf("CDC Host Disconnected (DTR cleared)\r\n");
         // TODO: 执行连接断开时的操作
     }
 
